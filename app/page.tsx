@@ -7,15 +7,25 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
+import SchemaScript from "@/components/SchemaScript";
+import { generateFAQSchema } from "@/lib/schema";
+import { getPageSiteContext } from "@/lib/site-url";
+import { sunCitySummerlinFaqs } from "@/lib/sun-city-faqs";
 
 export default async function Home() {
   const config = await getPageDomainConfig();
+  const { baseUrl } = await getPageSiteContext();
+
+  const homepageFaqs =
+    config.domain === "suncitysummerlinhomesforsale.com"
+      ? sunCitySummerlinFaqs
+      : undefined;
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    name: `Dr. Jan Duffy - ${config.neighborhood} Real Estate`,
-    url: `https://${config.domain !== "default" ? config.domain : "heyberkshire.com"}`,
+    name: "Dr. Jan Duffy",
+    url: baseUrl,
     telephone: "+17022221964",
     address: {
       "@type": "PostalAddress",
@@ -37,6 +47,17 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
+      {homepageFaqs && (
+        <SchemaScript
+          id="homepage-faq-schema"
+          schema={generateFAQSchema(
+            homepageFaqs.map((faq) => ({
+              question: faq.question,
+              answer: faq.answer,
+            }))
+          )}
+        />
+      )}
       <Navbar />
       <main>
         {/* Domain-Aware Hero */}
@@ -149,7 +170,19 @@ export default async function Home() {
         <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
-        <FAQSection />
+        <FAQSection
+          faqs={homepageFaqs}
+          title={
+            config.domain === "suncitysummerlinhomesforsale.com"
+              ? "Sun City Summerlin — Frequently Asked Questions"
+              : undefined
+          }
+          subtitle={
+            config.domain === "suncitysummerlinhomesforsale.com"
+              ? "Common questions about buying, selling, and living in this 55+ Summerlin community"
+              : undefined
+          }
+        />
 
         {/* Domain-Specific CTA */}
         <section className="py-16 md:py-20 bg-blue-600 text-white">

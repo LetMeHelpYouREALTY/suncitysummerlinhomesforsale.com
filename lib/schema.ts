@@ -221,7 +221,11 @@ export function generateOrganizationSchema() {
 /**
  * Generate BreadcrumbList schema for navigation trails
  */
-export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
+export function generateBreadcrumbSchema(
+  items: BreadcrumbItem[],
+  baseUrl: string = BASE_URL
+) {
+  const base = baseUrl.replace(/\/$/, "");
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -229,7 +233,9 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: item.url.startsWith("http") ? item.url : `${BASE_URL}${item.url}`,
+      item: item.url.startsWith("http")
+        ? item.url
+        : `${base}${item.url.startsWith("/") ? item.url : `/${item.url}`}`,
     })),
   };
 }

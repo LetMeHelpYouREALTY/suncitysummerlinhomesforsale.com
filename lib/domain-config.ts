@@ -20,6 +20,29 @@ export interface DomainConfig {
 
 const REALSCOUT_AGENT_ID = "QWdlbnQtMjI1MDUw";
 
+/** Primary domain for this deployment (dedicated Sun City Summerlin site). */
+export const PRIMARY_SITE_DOMAIN = "suncitysummerlinhomesforsale.com";
+
+function normalizeHostname(hostname: string): string {
+  const clean = hostname.replace(/^www\./, "").toLowerCase().split(":")[0];
+  if (!clean) return "";
+
+  if (DOMAIN_CONFIGS[clean]) return clean;
+
+  const vercelMatch = clean.match(/^(.+)-com\.vercel\.app$/);
+  if (vercelMatch) {
+    const candidate = `${vercelMatch[1]}.com`;
+    if (DOMAIN_CONFIGS[candidate]) return candidate;
+  }
+
+  const envDomain =
+    process.env.SITE_DOMAIN?.toLowerCase() ||
+    process.env.NEXT_PUBLIC_SITE_DOMAIN?.toLowerCase();
+  if (envDomain && DOMAIN_CONFIGS[envDomain]) return envDomain;
+
+  return clean;
+}
+
 export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "consenzaestates.com": { domain: "consenzaestates.com", neighborhood: "Consenza Estates", tagline: "Luxury Living in Consenza Estates", description: "Find your dream home in Consenza Estates, Las Vegas. Expert guidance from Dr. Jan Duffy.", heroHeadline: "Consenza Estates Homes for Sale", heroSubheadline: "Exclusive properties in one of Las Vegas' most sought-after communities.", keywords: ["Consenza Estates homes", "Las Vegas luxury real estate", "Consenza Estates Las Vegas"], pageType: "luxury", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Consenza Estates Expert", ctaHeadline: "Find Your Consenza Estates Home", ctaSubheadline: "I know every listing in this community. Let me match you with the right home." },
   "aliantehomesforsale.com": { domain: "aliantehomesforsale.com", neighborhood: "Aliante", tagline: "Aliante Homes for Sale", description: "Search Aliante homes for sale in North Las Vegas. Expert real estate guidance from Dr. Jan Duffy.", heroHeadline: "Aliante Homes for Sale", heroSubheadline: "Master-planned living in the heart of North Las Vegas.", keywords: ["Aliante homes for sale", "Aliante North Las Vegas", "Aliante real estate"], pageType: "community", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Aliante Specialist", ctaHeadline: "Search Aliante Homes Today", ctaSubheadline: "Get instant access to all Aliante listings with expert guidance." },
@@ -71,6 +94,12 @@ export const DEFAULT_CONFIG: DomainConfig = {
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {
-  const clean = hostname.replace(/^www\./, "").toLowerCase();
-  return DOMAIN_CONFIGS[clean] ?? DEFAULT_CONFIG;
+  const key = normalizeHostname(hostname);
+  if (DOMAIN_CONFIGS[key]) return DOMAIN_CONFIGS[key];
+
+  if (!hostname || hostname.includes("localhost") || hostname.startsWith("127.0.0.1")) {
+    return DOMAIN_CONFIGS[PRIMARY_SITE_DOMAIN] ?? DEFAULT_CONFIG;
+  }
+
+  return DEFAULT_CONFIG;
 }
