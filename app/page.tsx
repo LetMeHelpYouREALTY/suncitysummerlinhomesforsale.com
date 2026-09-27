@@ -7,6 +7,7 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
+import NearbyAmenitiesSection from "@/components/amenities/NearbyAmenitiesSection";
 
 export default async function Home() {
   const config = await getPageDomainConfig();
@@ -146,6 +147,7 @@ export default async function Home() {
           </div>
         </section>
 
+        <NearbyAmenitiesSection />
         <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
