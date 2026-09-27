@@ -2,14 +2,21 @@ import type { DomainConfig } from "@/lib/domain-config";
 import { SUN_CITY_SUMMERLIN_AMENITY_CONFIG } from "./sun-city-summerlin";
 import type { CommunityAmenityConfig } from "./types";
 
+function isSunCitySummerlinSite(domainConfig: DomainConfig): boolean {
+  if (
+    domainConfig.neighborhood === "Sun City Summerlin" ||
+    domainConfig.domain === "suncitysummerlinhomesforsale.com"
+  ) {
+    return true;
+  }
+  const vercelProject = process.env.VERCEL_PROJECT_NAME ?? "";
+  return vercelProject.toLowerCase().includes("suncitysummerlin");
+}
+
 export function getCommunityAmenityConfig(
   domainConfig: DomainConfig
 ): CommunityAmenityConfig | null {
-  const isSunCity =
-    domainConfig.neighborhood === "Sun City Summerlin" ||
-    domainConfig.domain === "suncitysummerlinhomesforsale.com";
-
-  if (isSunCity) {
+  if (isSunCitySummerlinSite(domainConfig)) {
     return SUN_CITY_SUMMERLIN_AMENITY_CONFIG;
   }
 
