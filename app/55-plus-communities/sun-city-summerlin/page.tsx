@@ -15,6 +15,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import NearbyAmenitiesSection from "@/components/amenities/NearbyAmenitiesSection";
 
 export const metadata: Metadata = {
   title: "Sun City Summerlin Homes for Sale | Berkshire Hathaway HomeServices",
@@ -134,6 +135,8 @@ export default function SunCitySummerlinPage() {
               </p>
             </div>
           </section>
+
+          <NearbyAmenitiesSection />
 
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">

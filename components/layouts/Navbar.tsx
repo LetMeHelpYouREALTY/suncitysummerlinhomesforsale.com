@@ -31,6 +31,7 @@ export default function Navbar() {
     { href: "/sellers", label: "Home Selling" },
     { href: "/luxury-homes", label: "Luxury Homes" },
     { href: "/55-plus-communities", label: "55+ Communities" },
+    { href: "/amenities", label: "Nearby Amenities" },
     { href: "/new-construction", label: "New Construction" },
     { href: "/market-report", label: "Market Report" },
     { href: "/market-insights", label: "Market Insights" },
