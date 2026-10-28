@@ -2,6 +2,7 @@
   "name": "faq-gen",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.33.3",
   "scripts": {
     "flask-dev": "FLASK_DEBUG=1 pip3 install -r requirements.txt && python3 -m flask --app api/index run -p 5328",
     "next-dev": "next dev",
