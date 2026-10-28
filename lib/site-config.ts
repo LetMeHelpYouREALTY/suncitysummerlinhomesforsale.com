@@ -29,11 +29,11 @@ export const agentInfo = {
 export const officeInfo = {
   name: "Berkshire Hathaway HomeServices Nevada Properties",
   address: {
-    street: "9406 W Lake Mead Blvd, Suite 100",
+    street: "9406 Del Webb Blvd",
     city: "Las Vegas",
     state: "NV",
     zip: "89134",
-    full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
+    full: "9406 Del Webb Blvd, Las Vegas, NV 89134",
   },
   coordinates: {
     lat: 36.1893,
