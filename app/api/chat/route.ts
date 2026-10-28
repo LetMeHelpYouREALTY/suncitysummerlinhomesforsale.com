@@ -1,10 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const openrouter = new OpenAI({
-  apiKey: process.env.OPENROUTER_API_KEY,
-  baseURL: "https://openrouter.ai/api/v1",
-});
+// Created lazily: `next build` imports this module while collecting page
+// data, and the OpenAI SDK throws at construction when the key is unset.
+let openrouter: OpenAI | null = null;
+function getOpenRouter(): OpenAI {
+  if (!openrouter) {
+    openrouter = new OpenAI({
+      apiKey: process.env.OPENROUTER_API_KEY,
+      baseURL: "https://openrouter.ai/api/v1",
+    });
+  }
+  return openrouter;
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -35,7 +43,7 @@ export async function POST(request: NextRequest) {
       },
     ];
 
-    const response = await openrouter.chat.completions.create({
+    const response = await getOpenRouter().chat.completions.create({
       model: "anthropic/claude-3.5-haiku",
       messages,
       temperature: 0.7,
