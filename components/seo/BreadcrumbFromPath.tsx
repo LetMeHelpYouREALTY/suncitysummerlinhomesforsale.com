@@ -41,7 +41,7 @@ function labelForSegment(segment: string): string {
 }
 
 export default async function BreadcrumbFromPath() {
-  const pathname = headers().get("x-pathname") || "/";
+  const pathname = (await headers()).get("x-pathname") || "/";
   if (pathname === "/" || pathname === "") return null;
 
   const { baseUrl } = await getPageSiteContext();

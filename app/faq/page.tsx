@@ -129,7 +129,7 @@ const faqCategories = [
       },
       {
         q: "What are the best neighborhoods for families?",
-        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering excellent schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
+        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering nearby public schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
       },
       {
         q: "How is the cost of living in Las Vegas?",
@@ -146,7 +146,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 Del Webb Blvd, Las Vegas, NV 89134.",
       },
       {
         q: "What areas does Dr. Jan cover?",

@@ -29,7 +29,7 @@ const contactSchema = {
     email: "homes@heyberkshire.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+      streetAddress: "9406 Del Webb Blvd",
       addressLocality: "Las Vegas",
       addressRegion: "NV",
       postalCode: "89134",
@@ -115,7 +115,7 @@ export default function ContactPage() {
                     <address className="not-italic text-slate-700">
                       Berkshire Hathaway HomeServices<br />
                       Nevada Properties<br />
-                      9406 W Lake Mead Blvd, Suite 100<br />
+                      9406 Del Webb Blvd<br />
                       Las Vegas, NV 89134
                     </address>
                   </div>
