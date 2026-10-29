@@ -326,7 +326,7 @@ jobs:
                 // Check for proper phone numbers
                 if (content.includes('702-222-1964') || content.includes('7022221964') || 
                     content.includes('702-222-1964') || content.includes('7022221964')) {
-                  issues.push(`❌ **${file.filename}**: Contains old phone number (should be (702) 500-1942)`);
+                  issues.push(`❌ **${file.filename}**: Contains old phone number (should be (702) 500-1955)`);
                 }
                 
                 // Check for JSON-LD schema
@@ -484,7 +484,7 @@ jobs:
             - [ ] Code follows project conventions
             - [ ] Tests pass with adequate coverage (80%+)
             - [ ] SEO metadata is present and optimized
-            - [ ] Phone numbers are correct: (702) 500-1942
+            - [ ] Phone numbers are correct: (702) 500-1955 (702-222-1964 is client email and text only)
             - [ ] Berkshire Hathaway branding is consistent
             - [ ] Mobile responsive design verified
             - [ ] No console errors
