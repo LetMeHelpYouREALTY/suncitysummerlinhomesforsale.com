@@ -51,7 +51,7 @@ export function buildSiteTitle(config: DomainConfig): string {
 
 export function buildSiteDescription(config: DomainConfig): string {
   if (config.domain === "suncitysummerlinhomesforsale.com") {
-    return "Search Sun City Summerlin homes in Las Vegas's premier 55+ active adult community. Dr. Jan Duffy, REALTOR®, guides buyers and sellers. Call 702-222-1964.";
+    return "Search Sun City Summerlin homes in Las Vegas's premier 55+ active adult community. Dr. Jan Duffy, REALTOR®, guides buyers and sellers. Call 702-500-1955.";
   }
   const base = config.description.trim();
   if (base.length >= 120) return base.slice(0, 160);
