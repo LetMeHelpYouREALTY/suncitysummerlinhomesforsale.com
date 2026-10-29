@@ -30,6 +30,6 @@ export const sunCitySummerlinFaqs: FAQ[] = [
   {
     question: "How do I get started with Dr. Jan Duffy?",
     answer:
-      "Call or text 702-222-1964 or use the contact form on this site. Dr. Jan Duffy can discuss your goals, set up listing alerts, and walk you through the next steps for buying or selling in Sun City Summerlin.",
+      "Call or text 702-500-1955 or use the contact form on this site. Dr. Jan Duffy can discuss your goals, set up listing alerts, and walk you through the next steps for buying or selling in Sun City Summerlin.",
   },
 ];
