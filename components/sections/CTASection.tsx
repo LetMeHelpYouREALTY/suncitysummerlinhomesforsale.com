@@ -39,7 +39,7 @@ export default function CTASection() {
               variant="outline"
               className="border-white text-white hover:bg-white/10"
             >
-              <Link href="tel:+17025001942" className="flex items-center gap-2">
+              <Link href="tel:+17025001955" className="flex items-center gap-2">
                 <Phone className="h-5 w-5" />
                 Call Now
               </Link>
