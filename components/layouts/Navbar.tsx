@@ -122,9 +122,9 @@ export default function Navbar() {
             </div>
 
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17025001942" className="flex items-center gap-2">
+              <Link href="tel:+17025001955" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span className="hidden xl:inline">(702) 500-1942</span>
+                <span className="hidden xl:inline">(702) 500-1955</span>
                 <span className="xl:hidden">Call</span>
               </Link>
             </Button>
@@ -133,7 +133,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-3">
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17025001942">
+              <Link href="tel:+17025001955">
                 <Phone className="h-4 w-4" />
               </Link>
             </Button>
@@ -196,11 +196,11 @@ export default function Navbar() {
               <div className="pt-4">
                 <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
                   <Link
-                    href="tel:+17025001942"
+                    href="tel:+17025001955"
                     className="flex items-center justify-center gap-2"
                   >
                     <Phone className="h-4 w-4" />
-                    Call Dr. Jan: (702) 500-1942
+                    Call Dr. Jan: (702) 500-1955
                   </Link>
                 </Button>
               </div>
