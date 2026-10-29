@@ -83,7 +83,7 @@ const buyingSteps = [
 
 const neighborhoods = [
   { name: "Summerlin", price: "$625K", description: "Master-planned community with Red Rock views" },
-  { name: "Henderson", price: "$485K", description: "Family-friendly with low crime rates" },
+  { name: "Henderson", price: "$485K", description: "Master-planned communities and parks" },
   { name: "Green Valley", price: "$520K", description: "Established with mature landscaping" },
   { name: "The Ridges", price: "$2.5M", description: "Ultra-luxury guard-gated estates" },
   { name: "North Las Vegas", price: "$385K", description: "Affordable new construction" },
@@ -208,7 +208,7 @@ export default function BuyersPage() {
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Las Vegas offers diverse neighborhoods for every lifestyle and budget. Whether you're 
-              seeking luxury estates in guard-gated communities, family homes near top-rated schools, 
+              seeking luxury estates in guard-gated communities, family homes near nearby public schools, 
               or affordable new construction, Dr. Jan helps you find the perfect neighborhood. Here's 
               a quick guide to median prices and what each area offers.
             </p>
@@ -422,7 +422,7 @@ export default function BuyersPage() {
                 },
                 {
                   q: "What are the best neighborhoods for families in Las Vegas?",
-                  a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering excellent schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities—schools, commute, budget, and lifestyle.",
+                  a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering nearby public schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities—schools, commute, budget, and lifestyle.",
                 },
               ].map((faq, index) => (
                 <div key={index} className="bg-slate-50 rounded-lg p-6">
