@@ -110,8 +110,8 @@ export default function GoogleBusinessPage() {
                       <Star key={star} className="h-8 w-8 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-3xl font-bold mb-2">4.9 / 5.0</p>
-                  <p className="text-blue-200 mb-6">200+ Client Reviews</p>
+                  <p className="text-3xl font-bold mb-2">5.0 / 5.0</p>
+                  <p className="text-blue-200 mb-6">50 Realtor.com Reviews</p>
                   <a
                     href={`tel:${businessInfo.phone.tel}`}
                     className="inline-block w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-lg font-bold text-lg transition-colors"
