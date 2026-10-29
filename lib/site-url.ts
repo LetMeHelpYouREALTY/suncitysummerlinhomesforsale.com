@@ -4,7 +4,10 @@ import { getDomainConfig, PRIMARY_SITE_DOMAIN } from "./domain-config";
 
 /** Hostname from middleware or deployment env (no protocol). */
 export function resolveRequestHostname(rawHost: string): string {
-  const fromHeader = rawHost.replace(/^www\./, "").toLowerCase().split(":")[0];
+  const fromHeader = rawHost
+    .replace(/^www\./, "")
+    .toLowerCase()
+    .split(":")[0];
   if (fromHeader) return fromHeader;
 
   const vercelUrl = process.env.VERCEL_URL;
@@ -19,7 +22,9 @@ export function getSiteBaseUrl(config: DomainConfig): string {
   }
   const production = process.env.VERCEL_PROJECT_PRODUCTION_URL;
   if (production) {
-    return production.startsWith("http") ? production.replace(/\/$/, "") : `https://${production}`;
+    return production.startsWith("http")
+      ? production.replace(/\/$/, "")
+      : `https://${production}`;
   }
   return `https://${PRIMARY_SITE_DOMAIN}`;
 }
@@ -28,7 +33,7 @@ export async function getPageSiteContext(): Promise<{
   config: DomainConfig;
   baseUrl: string;
 }> {
-  const headersList = headers();
+  const headersList = await headers();
   const hostname = resolveRequestHostname(headersList.get("x-domain") || "");
   const config = getDomainConfig(hostname);
   return { config, baseUrl: getSiteBaseUrl(config) };
@@ -50,7 +55,8 @@ export function buildSiteDescription(config: DomainConfig): string {
   }
   const base = config.description.trim();
   if (base.length >= 120) return base.slice(0, 160);
-  const suffix = " Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties.";
+  const suffix =
+    " Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties.";
   const combined = `${base}${suffix}`;
   return combined.length <= 160 ? combined : base;
 }
